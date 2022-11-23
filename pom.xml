@@ -8,6 +8,21 @@
 		<version>2.2.1.RELEASE</version>
 	</parent>
 
+	<profiles>
+		<profile>
+			<id>TEST</id>
+			<properties>
+				<liquibase.propertyFile>TEST.liquibase.properties</liquibase.propertyFile>
+			</properties>
+		</profile>
+		<profile>
+			<id>QA</id>
+			<properties>
+				<liquibase.propertyFile>QA.liquibase.properties</liquibase.propertyFile>
+			</properties>
+		</profile>
+	</profiles>
+
 	<groupId>net.codejava</groupId>
 	<artifactId>SalesManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

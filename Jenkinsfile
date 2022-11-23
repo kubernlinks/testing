@@ -11,8 +11,8 @@ pipeline {
   stages {
     stage('Status') {
       steps {
-        sh 'liquibase status --url="$TEST_URL" --changeLogFile=$changeLogFile --driver=$driver --username=postgres --password=fellaini'
-        sh 'liquibase status --url="$QA_URL" --changeLogFile=$changeLogFile --driver=$driver --username=postgres --password=fellaini'
+        sh 'liquibase status --url="$TEST_URL" --changeLogFile=$changeLogFile --username=postgres --password=fellaini'
+        sh 'liquibase status --url="$QA_URL" --changeLogFile=$changeLogFile --username=postgres --password=fellaini'
       }
     }
     stage('test') {
@@ -26,7 +26,7 @@ pipeline {
     stage('QA') {
       steps {
         sh 'mvn clean package'
-        sh 'mvn liquibase:update --url=$env:QA_URL --changeLogFile=wrapper.xml --username=postgres --password=fellaini'
+        sh 'mvn liquibase:update --url=$env:QA_URL --changeLogFile=$env:changeLogFile --username=postgres --password=fellaini'
         sh 'mvn liquibase:status -PQA'
         sh 'mvn Spring-boot:run'
        }

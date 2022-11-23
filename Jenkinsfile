@@ -6,7 +6,7 @@ pipeline {
     TEST_URL='jdbc:h2:tcp://localhost:9090/mem:dev'
     QA_URL='jdbc:h2:tcp://localhost:9090/mem:integration'
     changeLogFile='changelog_version-3.2.h2.sql'
-    driver=org.postgresql.Driver
+    driver='org.postgresql.Driver'
   }
   stages {
     stage('Status') {
